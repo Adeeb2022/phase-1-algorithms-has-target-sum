@@ -1,5 +1,16 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const seenNumbers = {};
+	
+  for (const element of array) {
+    // n steps
+    const complement = target - element;
+    if (complement in seenNumbers) 
+    return true;
+    seenNumbers[element] = true;
+  }
+	
+  return false;
 }
 
 /* 
@@ -12,6 +23,9 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
+  1. abstract every numbers of the array from the target
+  2. look for the new number in the array
+  3. if the number is found return true otherwise return false
 */
 
 // You can run `node index.js` to view these console logs
